@@ -1,0 +1,10 @@
+<div id="modal" *ngIf="isVisible">
+    <div id="modal-content">
+        <p>Are you sure you want to delete this event?</p>
+            <div id="buttons-div">
+                <button data-modal-toggle="deleteModal" type="button" (click)="onClose()" id="cancel-button">No, cancel</button>
+                <button type="submit" (click)="confirmDelete()" id="delete-button">Yes, I'm sure</button>
+        </div>
+    </div>
+  </div>
+  

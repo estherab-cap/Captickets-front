@@ -1,0 +1,64 @@
+#modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+  
+#modal-content {
+  background-color: white;
+  width: 30%;
+  height: 25%;
+  padding: 20px;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: #b3bbcc;
+}
+
+p {
+  margin-bottom: 1rem; 
+  color: #6B7280; 
+}
+
+#buttons-div {
+  display: flex; 
+  margin-left: 1rem; 
+  margin-top: 3rem;
+  justify-content: center; 
+  align-items: center; 
+  column-gap: 20px;
+}
+
+#cancel-button {
+  padding: 0.5rem; 
+  border-radius: 0.5rem; 
+  border-width: 1px; 
+  border-color: #E5E7EB; 
+  font-size: 0.875rem; 
+  font-weight: 500; 
+  color: #6B7280; 
+  background-color: #ffffff; 
+}
+
+#cancel-button:hover {
+  color: rgb(70, 67, 67);
+  background-color: #babdc5;
+}
+
+#delete-button {
+  padding: 0.5rem;
+  border-radius: 0.5rem; 
+  font-size: 0.875rem;
+  font-weight: 500; 
+  text-align: center;  
+  background-color: #DC2626; 
+  color: white;
+}
+
+#delete-button:hover {
+  background-color: #b13535;
+}
