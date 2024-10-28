@@ -1,5 +1,6 @@
 <section>
     <div id="header-div">
+        <h1 id="title" >CapTicket</h1>
         <div id="header-div-2">
             <div id="header-div-3">
                 <div id="header-div-4" class="w-full md:w-1/2">
@@ -11,9 +12,16 @@
                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <input type="text" id="simple-search" placeholder="Search" required="">
+                            <input [(ngModel)]="searchTerm" (input)="onSearchChange()" [ngModelOptions]="{standalone: true}" type="text" id="simple-search" placeholder="Search" required="">
                         </div>
                     </form>
+                    <button id="add-button" (click)="openAddModal()">
+                        <svg id="add-svg" class="h-5 w-5 text-red-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  
+                            <line x1="12" y1="5" x2="12" y2="19" />  
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg> 
+                        Añadir evento
+                    </button>
                 </div>
             </div>
 
@@ -30,18 +38,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let event of events" id="tr-body">
+                        <tr *ngFor="let event of filteredEvents" id="tr-body">
                             <th id="th-body" scope="col">
                                 <div id="details-div">
-                                    <button id="details-button" (click)="goToDetails(event.id)">
+                                    <button id="details-button" (click)="openDetailsModal(event)">
                                         <svg id="details-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                            <path stroke-linecap="round" st8roke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                                         </svg>  
                                     </button>
                                 </div>
                                 <div id="edit-div">
-                                    <button id="edit-button">
+                                    <button id="edit-button" (click)="openEditModal(event)">
                                         <svg id="edit-svg" width="24"  height="24"  viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  
                                             <path d="M12 20h9" />  
                                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
@@ -49,7 +57,7 @@
                                     </button>
                                 </div>
                                 <div id="delete-div">
-                                    <button id="delete-button" (click)="confirmDelete(event)">
+                                    <button id="delete-button" (click)="openDeleteModal(event.id)">
                                         <svg id="delete-svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
                                             <path stroke="none" d="M0 0h24v24H0z"/>  
                                             <line x1="4" y1="7" x2="20" y2="7" />  
@@ -71,5 +79,6 @@
                 </table>
             </div>
         </div>
+        <div *ngIf="filteredEvents.length === 0" id="no-events">No hay eventos que mostrar</div>
     </div>
 </section>

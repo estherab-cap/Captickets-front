@@ -1,0 +1,34 @@
+#close-button {
+    font-size: large;
+    font-weight: 600;
+    color: red;
+    margin-left: 95%;
+}
+
+#add-button {
+    width: 170px;
+    height: 40px;
+    margin-left: 25%;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    border: solid 2px #0284c7;
+    color: #0284c7;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+#add-button:hover {
+    color: white;
+    background-color: #0284c7;
+
+    #add-svg {
+        color: white;
+    }
+}
+
+#add-svg {
+    margin: 0.5rem; 
+    height: 1.5rem; 
+    color: #0284c7;
+}

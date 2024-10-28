@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from '../../services/event.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-delete-event',
@@ -12,30 +13,30 @@ import { EventService } from '../../services/event.service';
 })
 
 export class DeleteEventComponent {
-  isVisible = true;
+  constructor(
+    public dialogRef: MatDialogRef<DeleteEventComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      name: string; id: number 
+    },
+    private eventService: EventService,
+    private router: Router
+  ) {}
 
-  @Output() deleteConfirmed = new EventEmitter<void>();
-  constructor(private router: Router, 
-              private eventService: EventService, 
-              private route: ActivatedRoute) {}
-
-  open(): void {
-    this.isVisible = true;
+  onCancel(): void {
+    this.dialogRef.close();
   }
 
-  onClose(): void {
-    this.isVisible = false;
-  }
-
-  confirmDelete(): void {
-    this.route.paramMap.subscribe((params) => {
-      const id : any = params.get('id');
-      this.deleteConfirmed.emit();
-      this.onClose();
-      this.eventService.deleteEvent(id);
-
-      this.router.navigate(['/events']);
+  onDelete(): void {
+    this.eventService.deleteEvent(this.data.id).subscribe({
+      next: (response) => { 
+        this.dialogRef.close();
+        //window.location.href = window.location.href;
+        window.location.reload();
+      },
+      error: (err) => {
+        console.error("Error al eliminar el evento:", err);
+      }
     });
-  } 
+  }
 }
 

@@ -1,11 +1,6 @@
-#main-container {
-    width: 33%;
-    margin: 100px auto;
-}
-
 #card-container {
     position: relative; 
-    padding: 1rem; 
+
     border-radius: 0.5rem; 
     background-color: #ffffff; 
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
@@ -13,6 +8,13 @@
     @media (min-width: 640px) { 
         padding: 1.25rem; 
     }
+}
+
+button {
+    font-size: large;
+    font-weight: 600;
+    color: red;
+    margin-left: 95%;
 }
 
 #name-div {
@@ -48,8 +50,8 @@ span {
     padding-bottom: 0.125rem; 
     padding-left: 0.5rem;
     padding-right: 0.5rem; 
-    margin-top: 0.125rem; 
     margin-left: 1rem; 
+    margin-bottom: 0.6rem;
     border-radius: 0.5rem; 
     font-size: 0.75rem;
     line-height: 1rem; 
@@ -95,7 +97,7 @@ span {
 #city-text {
     font-size: 0.875rem;
     line-height: 1.25rem; 
-    font-weight: 300; 
+    font-weight: 500; 
     color: #6B7280; 
 }
 
@@ -110,7 +112,7 @@ span {
 #date-text {
     font-size: 0.875rem;
     line-height: 1.25rem; 
-    font-weight: 300; 
+    font-weight: 500; 
     color: #6B7280; 
 }
 
@@ -144,3 +146,4 @@ strong {
     margin-top: 0.5rem; 
     color: #10B981; 
 }
+

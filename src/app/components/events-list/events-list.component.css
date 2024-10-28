@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&family=Trade+Winds&display=swap');
+
 section {
-    padding: 8rem; 
+    padding: 4rem 8rem; 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
     background-color: #dfeffabe; 
+}
+
+
+#title {
+    text-align: center;
+    font-family: "Syne Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #5066ae;
 }
 
 #header-div {
@@ -20,7 +33,6 @@ section {
     overflow: hidden; 
     position: relative; 
     background-color: #ffffff; 
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
 
     @media (min-width: 640px) { 
         border-radius: 0.5rem; 
@@ -35,7 +47,7 @@ section {
     flex-direction: column; 
     justify-content: space-between; 
     align-items: center; 
-
+    width: 100%;
     @media (min-width: 768px) { 
         margin-left: 1rem; 
         margin-top: 0; 
@@ -44,16 +56,15 @@ section {
 }
 
 #header-div-4 {
-    width: 100%; 
-
-    @media (min-width: 768px) { 
-        width: 50%; 
-    }
+    display: flex;
+    align-items: center;
+    width: 100%
 }
 
 form {
     display: flex; 
     align-items: center; 
+    width: 300px;
 }
 
 label {
@@ -70,17 +81,20 @@ label {
 
 #header-div-5 {
     position: relative; 
-    width: 100%; 
+    display: flex;
+    width: 900px;
 }
 
 #header-div-6 {
     display: flex; 
     position: absolute; 
+    width: 700px;
     top: 0;
     bottom: 0; 
     left: 0; 
     padding-left: 0.75rem; 
     align-items: center; 
+    justify-content: center;
     pointer-events: none; 
 }
 
@@ -88,20 +102,50 @@ label {
     width: 1.25rem; 
     height: 1.25rem; 
     color: #6B7280; 
+    position: fixed;
+    margin-right: 220px;
 }
 
 #simple-search {
     display: block; 
     padding: 0.5rem; 
-    padding-left: 2.5rem; 
+    padding-left: 1.5rem; 
     border-radius: 0.5rem; 
     border-width: 1px; 
     border-color: #D1D5DB; 
-    width: 100%; 
+    width: 90%; 
     font-size: 0.875rem;
     line-height: 1.25rem; 
     color: #111827; 
     background-color: #F9FAFB; 
+}
+
+#add-button {
+    width: 170px;
+    height: 40px;
+    margin-left: 25%;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    border: solid 2px #0284c7;
+    color: #0284c7;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+#add-button:hover {
+    color: white;
+    background-color: #0284c7;
+
+    #add-svg {
+        color: white;
+    }
+}
+
+#add-svg {
+    margin: 0.5rem; 
+    height: 1.5rem; 
+    color: #0284c7;
 }
 
 #list-div {
@@ -119,10 +163,9 @@ table {
 thead {
     font-size: 0.75rem;
     line-height: 1rem; 
-    color:
-     #374151; 
+    color:#374151; 
     text-transform: uppercase; 
-    background-color: #F9FAFB; 
+    background-color: #ebefef; 
 }
 
 th {
@@ -154,15 +197,16 @@ th {
     :hover {
         border-radius: 0.5rem; 
         background-color: #0284c7;
+
+        #details-svg {
+            color: white;
+        }
     }
 }
 
 #details-button {
     width: 100%;
     height: 100%;
-    :hover {
-        color: #f8fafc;
-    }
 }
 
 #details-svg {
@@ -183,17 +227,17 @@ th {
     
     :hover {
         border-radius: 0.5rem; 
-        border-color: #fff;
         background-color: #16a34a;
+
+        #edit-svg {
+            color: white;
+        }
     }
 }
 
 #edit-button {
     width: 100%;
     height: 100%;
-    :hover {
-        color: #f8fafc;
-    }
 }
 
 #edit-svg {
@@ -214,17 +258,17 @@ th {
     
     :hover {
         border-radius: 0.5rem; 
-        border-color: #fff;
         background-color: #dc2626;
+
+        #delete-svg {
+            color: white;
+        }
     }
 }
 
 #delete-button {
     width: 100%;
     height: 100%;
-    :hover {
-        color: #f8fafc;
-    }
 }
 
 #delete-svg {
@@ -256,4 +300,13 @@ th {
 
 .body-td-3 {
     text-align: left; 
+}
+
+#no-events {
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+    background-color: #f9fafb;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 2rem 0;
 }
